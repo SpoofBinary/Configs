@@ -1,0 +1,1890 @@
+linux apps = alacritty atom audacious bpytop bspwm discord electron gimp gtk-2 gtk-3 neofetch nitrogen nnn notepadqq nvim polybar pulseaudio pulsemixer rofi sxhkd zsh ohmyzsh npm yay
+
+
++++++==[{( Personal Linux Configs )}]==+++++
+
+
+
+
+
+[-[-[ zsh ]-]-]
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+export LANG=en_US.UTF-8
+
+# Path to your oh-my-zsh installation.
+export ZSH="/home/bo/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="fino"
+
+# custom aliases
+alias -g n="nvim"
+alias -g l="ls"
+alias -g a="atom"
+alias -g p="pulsemixer"
+alias -g f="nnn"
+alias -g b="bpytop"
+alias -g neo="neofetch"
+alias -g c="cd"
+alias -g s="sudo"
+alias -g g="git"
+alias -g r="rm"
+alias -g t="touch"
+alias -g y="yay"
+alias -g md="mkdir"
+alias -g z="clear; zsh"
+alias -g e="cat"
+alias -g yayupgrade="yay"
+alias -g pacmanupgrade="sudo pacman -Fy"
+
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+# Path to your oh-my-zsh installation.
+#ZSH=/usr/share/oh-my-zsh/
+#
+#export DEFAULT_USER="fernando"
+#export TERM="xterm-256color"
+#export ZSH=/usr/share/oh-my-zsh
+#
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+#POWERLEVEL9K_MODE="nerdfont-complete"
+#source $ZSH/themes/powerlevel9k/powerlevel9k.zsh-theme
+#
+#POWERLEVEL9K_FOLDER_ICON=""
+#POWERLEVEL9K_HOME_SUB_ICON="$(print_icon "HOME_ICON")"
+#POWERLEVEL9K_DIR_PATH_SEPARATOR=" $(print_icon "LEFT_SUBSEGMENT_SEPARATOR") "
+#
+#POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+#
+#POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=true
+#
+#POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='black'
+#POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='178'
+#POWERLEVEL9K_NVM_BACKGROUND="238"
+#POWERLEVEL9K_NVM_FOREGROUND="green"
+#POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="blue"
+#POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="015"
+#
+#POWERLEVEL9K_TIME_BACKGROUND='255'
+##POWERLEVEL9K_COMMAND_TIME_FOREGROUND='gray'
+#POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='245'
+#POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='black'
+#
+#POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir dir_writable vcs)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time)
+#POWERLEVEL9K_SHOW_CHANGESET=true
+#
+#HYPHEN_INSENSITIVE="true"
+#COMPLETION_WAITING_DOTS="true"
+## /!\ do not use with zsh-autosuggestions
+#
+#plugins=(archlinux
+#	asdf
+#	bundler
+#	docker
+#	jsontools
+#	vscode
+#	web-search
+#	k
+#	tig
+#	gitfast
+#	colored-man-pages
+#	colorize
+#	command-not-found
+#	cp
+#	dirhistory
+#	autojump
+#	sudo
+#	zsh-syntax-highlighting)
+## /!\ zsh-syntax-highlighting and then zsh-autosuggestions must be at the end
+#
+#source $ZSH/oh-my-zsh.sh
+#
+#ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+#typeset -gA ZSH_HIGHLIGHT_STYLES
+#ZSH_HIGHLIGHT_STYLES[cursor]='bold'
+#
+#ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
+#ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,bold'
+#ZSH_HIGHLIGHT_STYLES[builtin]='fg=green,bold'
+#ZSH_HIGHLIGHT_STYLES[function]='fg=green,bold'
+#ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
+#ZSH_HIGHLIGHT_STYLES[precommand]='fg=green,bold'
+#ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green,bold'
+#
+#rule () {
+#	print -Pn '%F{blue}'
+#	local columns=$(tput cols)
+#	for ((i=1; i<=columns; i++)); do
+#		printf "\u2588"
+#	done
+#	print -P '%f'
+#}
+#
+#function _my_clear() {
+#	echo
+#	rule
+#	zle clear-screen
+#}
+#zle -N _my_clear
+#bindkey '^1' _my_clear
+#
+#
+## Ctrl-O opens zsh at the current location, and on exit, cd into ranger's last location.
+#ranger-cd() {
+#	tempfile=$(mktemp)
+#	ranger --choosedir="$tempfile" "${@:-$(pwd)}" < $TTY
+#	test -f "$tempfile" &&
+#	if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+#	cd -- "$(cat "$tempfile")"
+#	fi
+#	rm -f -- "$tempfile"
+#	# hacky way of transferring over previous command and updating the screen
+#	VISUAL=true zle edit-command-line
+#}
+#zle -N ranger-cd
+#bindkey '^o' ranger-cd
+#
+## Uncomment the following line to disable bi-weekly auto-update checks.
+#DISABLE_AUTO_UPDATE="true"
+#
+#ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+#if [[ ! -d $ZSH_CACHE_DIR ]]; then
+#	mkdir $ZSH_CACHE_DIR
+#fi
+#
+#source $ZSH/oh-my-zsh.sh
+
+# displays neofetch command
+neofetch
+
+
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+
+
+
+[-[-[ bspwm ]-]-]
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+bspc config border_width         4
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+bspc config normal_border_color "44475a"
+bspc config active_border_color "bd93f9"
+bspc config focused_border_color "#7c31ed"
+bspc config presel_feedback_color "6272a4"
+
+bash ~/.config/polybar/launch.sh --shapes
+
+
+
+
+
+
+[-[-[ sxhkd ]-]-]
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+	alacritty
+
+# program launcher
+super + @space
+	rofi -i -show drun -modi drun -show-icons
+
+# firefox
+# super + f
+#	Firefox
+#
+# File manager
+# super + o
+#	Thunar
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# close and kill
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
+
+#
+# state/flags
+#
+
+# set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous window in the current desktop
+super + {_,shift + }c
+	bspc node -f {next,prev}.local.!hidden.window
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {-,=}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# preselect
+#
+
+# preselect the direction
+super + ctrl + shift + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + ctrl + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {h,j,k,l}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+
+
+
+
+[-[-[ rofi ]-]-]
+rofithemer from aur/git
+
+
+
+
+
+[-[-[ neofetch ]-]-]
+# See this wiki page for more info:
+# https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
+print_info() {
+    info title
+    info underline
+
+    info "OS" distro
+    # info "Host" model
+    info "Kernel" kernel
+    # info "Uptime" uptime
+    info "Packages" packages
+    info "Shell" shell
+    # info "Resolution" resolution
+    info "DE" de
+    info "WM" wm
+    # info "WM Theme" wm_theme
+    info "Theme" theme
+    info "Icons" icons
+    info "Terminal" term
+    # info "Terminal Font" term_font
+    info "CPU" cpu
+    info "GPU" gpu
+    info "Memory" memory
+
+    # info "GPU Driver" gpu_driver  # Linux/macOS only
+    # info "CPU Usage" cpu_usage
+    # info "Disk" disk
+    # info "Battery" battery
+    info "Font" font
+    # info "Song" song
+    # [[ "$player" ]] && prin "Music Player" "$player"
+    # info "Local IP" local_ip
+    # info "Public IP" public_ip
+    # info "Users" users
+    # info "Locale" locale  # This only works on glibc systems.
+
+    info cols
+}
+
+# Title
+
+
+# Hide/Show Fully qualified domain name.
+#
+# Default:  'off'
+# Values:   'on', 'off'
+# Flag:     --title_fqdn
+title_fqdn="off"
+
+
+# Kernel
+
+
+# Shorten the output of the kernel function.
+#
+# Default:  'on'
+# Values:   'on', 'off'
+# Flag:     --kernel_shorthand
+# Supports: Everything except *BSDs (except PacBSD and PC-BSD)
+#
+# Example:
+# on:  '4.8.9-1-ARCH'
+# off: 'Linux 4.8.9-1-ARCH'
+kernel_shorthand="on"
+
+
+# Distro
+
+
+# Shorten the output of the distro function
+#
+# Default:  'off'
+# Values:   'on', 'tiny', 'off'
+# Flag:     --distro_shorthand
+# Supports: Everything except Windows and Haiku
+distro_shorthand="off"
+
+# Show/Hide OS Architecture.
+# Show 'x86_64', 'x86' and etc in 'Distro:' output.
+#
+# Default: 'on'
+# Values:  'on', 'off'
+# Flag:    --os_arch
+#
+# Example:
+# on:  'Arch Linux x86_64'
+# off: 'Arch Linux'
+os_arch="off"
+
+
+# Uptime
+
+
+# Shorten the output of the uptime function
+#
+# Default: 'on'
+# Values:  'on', 'tiny', 'off'
+# Flag:    --uptime_shorthand
+#
+# Example:
+# on:   '2 days, 10 hours, 3 mins'
+# tiny: '2d 10h 3m'
+# off:  '2 days, 10 hours, 3 minutes'
+uptime_shorthand="tiny"
+
+
+# Memory
+
+
+# Show memory pecentage in output.
+#
+# Default: 'off'
+# Values:  'on', 'off'
+# Flag:    --memory_percent
+#
+# Example:
+# on:   '1801MiB / 7881MiB (22%)'
+# off:  '1801MiB / 7881MiB'
+memory_percent="on"
+
+# Change memory output unit.
+#
+# Default: 'mib'
+# Values:  'kib', 'mib', 'gib'
+# Flag:    --memory_unit
+#
+# Example:
+# kib  '1020928KiB / 7117824KiB'
+# mib  '1042MiB / 6951MiB'
+# gib: ' 0.98GiB / 6.79GiB'
+memory_unit="gib"
+
+
+# Packages
+
+
+# Show/Hide Package Manager names.
+#
+# Default: 'tiny'
+# Values:  'on', 'tiny' 'off'
+# Flag:    --package_managers
+#
+# Example:
+# on:   '998 (pacman), 8 (flatpak), 4 (snap)'
+# tiny: '908 (pacman, flatpak, snap)'
+# off:  '908'
+package_managers="on"
+
+
+# Shell
+
+
+# Show the path to $SHELL
+#
+# Default: 'off'
+# Values:  'on', 'off'
+# Flag:    --shell_path
+#
+# Example:
+# on:  '/bin/bash'
+# off: 'bash'
+shell_path="off"
+
+# Show $SHELL version
+#
+# Default: 'on'
+# Values:  'on', 'off'
+# Flag:    --shell_version
+#
+# Example:
+# on:  'bash 4.4.5'
+# off: 'bash'
+shell_version="off"
+
+
+# CPU
+
+
+# CPU speed type
+#
+# Default: 'bios_limit'
+# Values: 'scaling_cur_freq', 'scaling_min_freq', 'scaling_max_freq', 'bios_limit'.
+# Flag:    --speed_type
+# Supports: Linux with 'cpufreq'
+# NOTE: Any file in '/sys/devices/system/cpu/cpu0/cpufreq' can be used as a value.
+speed_type="bios_limit"
+
+# CPU speed shorthand
+#
+# Default: 'off'
+# Values: 'on', 'off'.
+# Flag:    --speed_shorthand
+# NOTE: This flag is not supported in systems with CPU speed less than 1 GHz
+#
+# Example:
+# on:    'i7-6500U (4) @ 3.1GHz'
+# off:   'i7-6500U (4) @ 3.100GHz'
+speed_shorthand="on"
+
+# Enable/Disable CPU brand in output.
+#
+# Default: 'on'
+# Values:  'on', 'off'
+# Flag:    --cpu_brand
+#
+# Example:
+# on:   'Intel i7-6500U'
+# off:  'i7-6500U (4)'
+cpu_brand="on"
+
+# CPU Speed
+# Hide/Show CPU speed.
+#
+# Default: 'on'
+# Values:  'on', 'off'
+# Flag:    --cpu_speed
+#
+# Example:
+# on:  'Intel i7-6500U (4) @ 3.1GHz'
+# off: 'Intel i7-6500U (4)'
+cpu_speed="on"
+
+# CPU Cores
+# Display CPU cores in output
+#
+# Default: 'logical'
+# Values:  'logical', 'physical', 'off'
+# Flag:    --cpu_cores
+# Support: 'physical' doesn't work on BSD.
+#
+# Example:
+# logical:  'Intel i7-6500U (4) @ 3.1GHz' (All virtual cores)
+# physical: 'Intel i7-6500U (2) @ 3.1GHz' (All physical cores)
+# off:      'Intel i7-6500U @ 3.1GHz'
+cpu_cores="logical"
+
+# CPU Temperature
+# Hide/Show CPU temperature.
+# Note the temperature is added to the regular CPU function.
+#
+# Default: 'off'
+# Values:  'C', 'F', 'off'
+# Flag:    --cpu_temp
+# Supports: Linux, BSD
+# NOTE: For FreeBSD and NetBSD-based systems, you'll need to enable
+#       coretemp kernel module. This only supports newer Intel processors.
+#
+# Example:
+# C:   'Intel i7-6500U (4) @ 3.1GHz [27.2°C]'
+# F:   'Intel i7-6500U (4) @ 3.1GHz [82.0°F]'
+# off: 'Intel i7-6500U (4) @ 3.1GHz'
+cpu_temp="on"
+
+
+# GPU
+
+
+# Enable/Disable GPU Brand
+#
+# Default: 'on'
+# Values:  'on', 'off'
+# Flag:    --gpu_brand
+#
+# Example:
+# on:  'AMD HD 7950'
+# off: 'HD 7950'
+gpu_brand="on"
+
+# Which GPU to display
+#
+# Default: 'all'
+# Values:  'all', 'dedicated', 'integrated'
+# Flag:    --gpu_type
+# Supports: Linux
+#
+# Example:
+# all:
+#   GPU1: AMD HD 7950
+#   GPU2: Intel Integrated Graphics
+#
+# dedicated:
+#   GPU1: AMD HD 7950
+#
+# integrated:
+#   GPU1: Intel Integrated Graphics
+gpu_type="dedicated"
+
+
+# Resolution
+
+
+# Display refresh rate next to each monitor
+# Default: 'off'
+# Values:  'on', 'off'
+# Flag:    --refresh_rate
+# Supports: Doesn't work on Windows.
+#
+# Example:
+# on:  '1920x1080 @ 60Hz'
+# off: '1920x1080'
+refresh_rate="on"
+
+
+# Gtk Theme / Icons / Font
+
+
+# Shorten output of GTK Theme / Icons / Font
+#
+# Default: 'off'
+# Values:  'on', 'off'
+# Flag:    --gtk_shorthand
+#
+# Example:
+# on:  'Numix, Adwaita'
+# off: 'Numix [GTK2], Adwaita [GTK3]'
+gtk_shorthand="on"
+
+
+# Enable/Disable gtk2 Theme / Icons / Font
+#
+# Default: 'on'
+# Values:  'on', 'off'
+# Flag:    --gtk2
+#
+# Example:
+# on:  'Numix [GTK2], Adwaita [GTK3]'
+# off: 'Adwaita [GTK3]'
+gtk2="on"
+
+# Enable/Disable gtk3 Theme / Icons / Font
+#
+# Default: 'on'
+# Values:  'on', 'off'
+# Flag:    --gtk3
+#
+# Example:
+# on:  'Numix [GTK2], Adwaita [GTK3]'
+# off: 'Numix [GTK2]'
+gtk3="on"
+
+
+# IP Address
+
+
+# Website to ping for the public IP
+#
+# Default: 'http://ident.me'
+# Values:  'url'
+# Flag:    --ip_host
+public_ip_host="http://ident.me"
+
+# Public IP timeout.
+#
+# Default: '2'
+# Values:  'int'
+# Flag:    --ip_timeout
+public_ip_timeout=2
+
+
+# Desktop Environment
+
+
+# Show Desktop Environment version
+#
+# Default: 'on'
+# Values:  'on', 'off'
+# Flag:    --de_version
+de_version="on"
+
+
+# Disk
+
+
+# Which disks to display.
+# The values can be any /dev/sdXX, mount point or directory.
+# NOTE: By default we only show the disk info for '/'.
+#
+# Default: '/'
+# Values:  '/', '/dev/sdXX', '/path/to/drive'.
+# Flag:    --disk_show
+#
+# Example:
+# disk_show=('/' '/dev/sdb1'):
+#      'Disk (/): 74G / 118G (66%)'
+#      'Disk (/mnt/Videos): 823G / 893G (93%)'
+#
+# disk_show=('/'):
+#      'Disk (/): 74G / 118G (66%)'
+#
+disk_show=('/')
+
+# Disk subtitle.
+# What to append to the Disk subtitle.
+#
+# Default: 'mount'
+# Values:  'mount', 'name', 'dir', 'none'
+# Flag:    --disk_subtitle
+#
+# Example:
+# name:   'Disk (/dev/sda1): 74G / 118G (66%)'
+#         'Disk (/dev/sdb2): 74G / 118G (66%)'
+#
+# mount:  'Disk (/): 74G / 118G (66%)'
+#         'Disk (/mnt/Local Disk): 74G / 118G (66%)'
+#         'Disk (/mnt/Videos): 74G / 118G (66%)'
+#
+# dir:    'Disk (/): 74G / 118G (66%)'
+#         'Disk (Local Disk): 74G / 118G (66%)'
+#         'Disk (Videos): 74G / 118G (66%)'
+#
+# none:   'Disk: 74G / 118G (66%)'
+#         'Disk: 74G / 118G (66%)'
+#         'Disk: 74G / 118G (66%)'
+disk_subtitle="mount"
+
+# Disk percent.
+# Show/Hide disk percent.
+#
+# Default: 'on'
+# Values:  'on', 'off'
+# Flag:    --disk_percent
+#
+# Example:
+# on:  'Disk (/): 74G / 118G (66%)'
+# off: 'Disk (/): 74G / 118G'
+disk_percent="on"
+
+
+# Song
+
+
+# Manually specify a music player.
+#
+# Default: 'auto'
+# Values:  'auto', 'player-name'
+# Flag:    --music_player
+#
+# Available values for 'player-name':
+#
+# amarok
+# audacious
+# banshee
+# bluemindo
+# clementine
+# cmus
+# deadbeef
+# deepin-music
+# dragon
+# elisa
+# exaile
+# gnome-music
+# gmusicbrowser
+# gogglesmm
+# guayadeque
+# io.elementary.music
+# iTunes
+# juk
+# lollypop
+# mocp
+# mopidy
+# mpd
+# muine
+# netease-cloud-music
+# olivia
+# playerctl
+# pogo
+# pragha
+# qmmp
+# quodlibet
+# rhythmbox
+# sayonara
+# smplayer
+# spotify
+# strawberry
+# tauonmb
+# tomahawk
+# vlc
+# xmms2d
+# xnoise
+# yarock
+music_player="auto"
+
+# Format to display song information.
+#
+# Default: '%artist% - %album% - %title%'
+# Values:  '%artist%', '%album%', '%title%'
+# Flag:    --song_format
+#
+# Example:
+# default: 'Song: Jet - Get Born - Sgt Major'
+song_format="%artist% - %album% - %title%"
+
+# Print the Artist, Album and Title on separate lines
+#
+# Default: 'off'
+# Values:  'on', 'off'
+# Flag:    --song_shorthand
+#
+# Example:
+# on:  'Artist: The Fratellis'
+#      'Album: Costello Music'
+#      'Song: Chelsea Dagger'
+#
+# off: 'Song: The Fratellis - Costello Music - Chelsea Dagger'
+song_shorthand="off"
+
+# 'mpc' arguments (specify a host, password etc).
+#
+# Default:  ''
+# Example: mpc_args=(-h HOST -P PASSWORD)
+mpc_args=()
+
+
+# Text Colors
+
+
+# Text Colors
+#
+# Default:  'distro'
+# Values:   'distro', 'num' 'num' 'num' 'num' 'num' 'num'
+# Flag:     --colors
+#
+# Each number represents a different part of the text in
+# this order: 'title', '@', 'underline', 'subtitle', 'colon', 'info'
+#
+# Example:
+# colors=(distro)      - Text is colored based on Distro colors.
+# colors=(4 6 1 8 8 6) - Text is colored in the order above.
+colors=(4 15 15 4 15 15)
+
+
+# Text Options
+
+
+# Toggle bold text
+#
+# Default:  'on'
+# Values:   'on', 'off'
+# Flag:     --bold
+bold="on"
+
+# Enable/Disable Underline
+#
+# Default:  'on'
+# Values:   'on', 'off'
+# Flag:     --underline
+underline_enabled="on"
+
+# Underline character
+#
+# Default:  '-'
+# Values:   'string'
+# Flag:     --underline_char
+underline_char="-"
+
+
+# Info Separator
+# Replace the default separator with the specified string.
+#
+# Default:  ':'
+# Flag:     --separator
+#
+# Example:
+# separator="->":   'Shell-> bash'
+# separator=" =":   'WM = dwm'
+separator=":"
+
+
+# Color Blocks
+
+
+# Color block range
+# The range of colors to print.
+#
+# Default:  '0', '15'
+# Values:   'num'
+# Flag:     --block_range
+#
+# Example:
+#
+# Display colors 0-7 in the blocks.  (8 colors)
+# neofetch --block_range 0 7
+#
+# Display colors 0-15 in the blocks. (16 colors)
+# neofetch --block_range 0 15
+block_range=(0 15)
+
+# Toggle color blocks
+#
+# Default:  'on'
+# Values:   'on', 'off'
+# Flag:     --color_blocks
+color_blocks="off"
+
+# Color block width in spaces
+#
+# Default:  '3'
+# Values:   'num'
+# Flag:     --block_width
+block_width=3
+
+# Color block height in lines
+#
+# Default:  '1'
+# Values:   'num'
+# Flag:     --block_height
+block_height=1
+
+# Color Alignment
+#
+# Default: 'auto'
+# Values: 'auto', 'num'
+# Flag: --col_offset
+#
+# Number specifies how far from the left side of the terminal (in spaces) to
+# begin printing the columns, in case you want to e.g. center them under your
+# text.
+# Example:
+# col_offset="auto" - Default behavior of neofetch
+# col_offset=7      - Leave 7 spaces then print the colors
+col_offset="auto"
+
+# Progress Bars
+
+
+# Bar characters
+#
+# Default:  '-', '='
+# Values:   'string', 'string'
+# Flag:     --bar_char
+#
+# Example:
+# neofetch --bar_char 'elapsed' 'total'
+# neofetch --bar_char '-' '='
+bar_char_elapsed="-"
+bar_char_total="="
+
+# Toggle Bar border
+#
+# Default:  'on'
+# Values:   'on', 'off'
+# Flag:     --bar_border
+bar_border="on"
+
+# Progress bar length in spaces
+# Number of chars long to make the progress bars.
+#
+# Default:  '15'
+# Values:   'num'
+# Flag:     --bar_length
+bar_length=15
+
+# Progress bar colors
+# When set to distro, uses your distro's logo colors.
+#
+# Default:  'distro', 'distro'
+# Values:   'distro', 'num'
+# Flag:     --bar_colors
+#
+# Example:
+# neofetch --bar_colors 3 4
+# neofetch --bar_colors distro 5
+bar_color_elapsed="distro"
+bar_color_total="distro"
+
+
+# Info display
+# Display a bar with the info.
+#
+# Default: 'off'
+# Values:  'bar', 'infobar', 'barinfo', 'off'
+# Flags:   --cpu_display
+#          --memory_display
+#          --battery_display
+#          --disk_display
+#
+# Example:
+# bar:     '[---=======]'
+# infobar: 'info [---=======]'
+# barinfo: '[---=======] info'
+# off:     'info'
+cpu_display="off"
+memory_display="off"
+battery_display="off"
+disk_display="off"
+
+
+# Backend Settings
+
+
+# Image backend.
+#
+# Default:  'ascii'
+# Values:   'ascii', 'caca', 'chafa', 'jp2a', 'iterm2', 'off',
+#           'pot', 'termpix', 'pixterm', 'tycat', 'w3m', 'kitty'
+# Flag:     --backend
+image_backend="ascii"
+
+# Image Source
+#
+# Which image or ascii file to display.
+#
+# Default:  'auto'
+# Values:   'auto', 'ascii', 'wallpaper', '/path/to/img', '/path/to/ascii', '/path/to/dir/'
+#           'command output (neofetch --ascii "$(fortune | cowsay -W 30)")'
+# Flag:     --source
+#
+# NOTE: 'auto' will pick the best image source for whatever image backend is used.
+#       In ascii mode, distro ascii art will be used and in an image mode, your
+#       wallpaper will be used.
+image_source="auto"
+
+
+# Ascii Options
+
+
+# Ascii distro
+# Which distro's ascii art to display.
+#
+# Default: 'auto'
+# Values:  'auto', 'distro_name'
+# Flag:    --ascii_distro
+# NOTE: AIX, Alpine, Anarchy, Android, Antergos, antiX, "AOSC OS",
+#       "AOSC OS/Retro", Apricity, ArcoLinux, ArchBox, ARCHlabs,
+#       ArchStrike, XFerience, ArchMerge, Arch, Artix, Arya, Bedrock,
+#       Bitrig, BlackArch, BLAG, BlankOn, BlueLight, bonsai, BSD,
+#       BunsenLabs, Calculate, Carbs, CentOS, Chakra, ChaletOS,
+#       Chapeau, Chrom*, Cleanjaro, ClearOS, Clear_Linux, Clover,
+#       Condres, Container_Linux, CRUX, Cucumber, Debian, Deepin,
+#       DesaOS, Devuan, DracOS, DarkOs, DragonFly, Drauger, Elementary,
+#       EndeavourOS, Endless, EuroLinux, Exherbo, Fedora, Feren, FreeBSD,
+#       FreeMiNT, Frugalware, Funtoo, GalliumOS, Garuda, Gentoo, Pentoo,
+#       gNewSense, GNOME, GNU, GoboLinux, Grombyang, Guix, Haiku, Huayra,
+#       Hyperbola, janus, Kali, KaOS, KDE_neon, Kibojoe, Kogaion,
+#       Korora, KSLinux, Kubuntu, LEDE, LFS, Linux_Lite,
+#       LMDE, Lubuntu, Lunar, macos, Mageia, MagpieOS, Mandriva,
+#       Manjaro, Maui, Mer, Minix, LinuxMint, MX_Linux, Namib,
+#       Neptune, NetBSD, Netrunner, Nitrux, NixOS, Nurunner,
+#       NuTyX, OBRevenge, OpenBSD, openEuler, OpenIndiana, openmamba,
+#       OpenMandriva, OpenStage, OpenWrt, osmc, Oracle, OS Elbrus, PacBSD,
+#       Parabola, Pardus, Parrot, Parsix, TrueOS, PCLinuxOS, Peppermint,
+#       popos, Porteus, PostMarketOS, Proxmox, Puppy, PureOS, Qubes, Radix,
+#       Raspbian, Reborn_OS, Redstar, Redcore, Redhat, Refracted_Devuan,
+#       Regata, Rosa, sabotage, Sabayon, Sailfish, SalentOS, Scientific,
+#       Septor, SereneLinux, SharkLinux, Siduction, Slackware, SliTaz,
+#       SmartOS, Solus, Source_Mage, Sparky, Star, SteamOS, SunOS,
+#       openSUSE_Leap, openSUSE_Tumbleweed, openSUSE, SwagArch, Tails,
+#       Trisquel, Ubuntu-Budgie, Ubuntu-GNOME, Ubuntu-MATE, Ubuntu-Studio,
+#       Ubuntu, Venom, Void, Obarun, windows10, Windows7, Xubuntu, Zorin,
+#       and IRIX have ascii logos
+# NOTE: Arch, Ubuntu, Redhat, and Dragonfly have 'old' logo variants.
+#       Use '{distro name}_old' to use the old logos.
+# NOTE: Ubuntu has flavor variants.
+#       Change this to Lubuntu, Kubuntu, Xubuntu, Ubuntu-GNOME,
+#       Ubuntu-Studio, Ubuntu-Mate  or Ubuntu-Budgie to use the flavors.
+# NOTE: Arcolinux, Dragonfly, Fedora, Alpine, Arch, Ubuntu,
+#       CRUX, Debian, Gentoo, FreeBSD, Mac, NixOS, OpenBSD, android,
+#       Antrix, CentOS, Cleanjaro, ElementaryOS, GUIX, Hyperbola,
+#       Manjaro, MXLinux, NetBSD, Parabola, POP_OS, PureOS,
+#       Slackware, SunOS, LinuxLite, OpenSUSE, Raspbian,
+#       postmarketOS, and Void have a smaller logo variant.
+#       Use '{distro name}_small' to use the small variants.
+ascii_distro="auto"
+
+# Ascii Colors
+#
+# Default:  'distro'
+# Values:   'distro', 'num' 'num' 'num' 'num' 'num' 'num'
+# Flag:     --ascii_colors
+#
+# Example:
+# ascii_colors=(distro)      - Ascii is colored based on Distro colors.
+# ascii_colors=(4 6 1 8 8 6) - Ascii is colored using these colors.
+ascii_colors=(4 4 4 4 4 4)
+
+# Bold ascii logo
+# Whether or not to bold the ascii logo.
+#
+# Default: 'on'
+# Values:  'on', 'off'
+# Flag:    --ascii_bold
+ascii_bold="on"
+
+
+# Image Options
+
+
+# Image loop
+# Setting this to on will make neofetch redraw the image constantly until
+# Ctrl+C is pressed. This fixes display issues in some terminal emulators.
+#
+# Default:  'off'
+# Values:   'on', 'off'
+# Flag:     --loop
+image_loop="off"
+
+# Thumbnail directory
+#
+# Default: '~/.cache/thumbnails/neofetch'
+# Values:  'dir'
+thumbnail_dir="${XDG_CACHE_HOME:-${HOME}/.cache}/thumbnails/neofetch"
+
+# Crop mode
+#
+# Default:  'normal'
+# Values:   'normal', 'fit', 'fill'
+# Flag:     --crop_mode
+#
+# See this wiki page to learn about the fit and fill options.
+# https://github.com/dylanaraps/neofetch/wiki/What-is-Waifu-Crop%3F
+crop_mode="normal"
+
+# Crop offset
+# Note: Only affects 'normal' crop mode.
+#
+# Default:  'center'
+# Values:   'northwest', 'north', 'northeast', 'west', 'center'
+#           'east', 'southwest', 'south', 'southeast'
+# Flag:     --crop_offset
+crop_offset="center"
+
+# Image size
+# The image is half the terminal width by default.
+#
+# Default: 'auto'
+# Values:  'auto', '00px', '00%', 'none'
+# Flags:   --image_size
+#          --size
+image_size="auto"
+
+# Gap between image and text
+#
+# Default: '3'
+# Values:  'num', '-num'
+# Flag:    --gap
+gap=3
+
+# Image offsets
+# Only works with the w3m backend.
+#
+# Default: '0'
+# Values:  'px'
+# Flags:   --xoffset
+#          --yoffset
+yoffset=0
+xoffset=0
+
+# Image background color
+# Only works with the w3m backend.
+#
+# Default: ''
+# Values:  'color', 'blue'
+# Flag:    --bg_color
+background_color=
+
+
+# Misc Options
+
+# Stdout mode
+# Turn off all colors and disables image backend (ASCII/Image).
+# Useful for piping into another command.
+# Default: 'off'
+# Values: 'on', 'off'
+stdout="off"
+
+export SHELL=zsh
+
+
+
+
+
+[-[-[ nvim ]-]-]
+set termguicolors
+colorscheme ricecake
+[colorscheme]
+" PersonalNeoVim ColorScheme
+" Name : ricecake
+" Created by SpoofBinary
+
+hi clear
+
+if exists("syntax on")
+syntax reset
+endif
+
+set t_Co=256
+let g:colors_name = "ricecake"
+
+
+" Define reusable colorvariables.
+let s:bg="#2e2c2c"
+let s:fg="#8c00ff"
+let s:fg2="#8100eb"
+let s:fg3="#7600d6"
+let s:fg4="#6a00c2"
+let s:bg2="#3f3d3d"
+let s:bg3="#4f4e4e"
+let s:bg4="#605f5f"
+let s:keyword="#a300ff"
+let s:builtin="#cd71ff"
+let s:const= "#e94ceb"
+let s:comment="#720090"
+let s:func="#cd71ff"
+let s:str="#ffffff"
+let s:type="#e94ceb"
+let s:var="#c400ff"
+let s:warning="#ff00ac"
+let s:warning2="#ff00ac"
+
+exe 'hi Normal guifg='s:fg' guibg='s:bg
+exe 'hi Cursor guifg='s:bg' guibg='s:fg
+exe 'hi CursorLine  guibg='s:bg2
+exe 'hi CursorLineNr guifg='s:str' guibg='s:bg
+exe 'hi CursorColumn  guibg='s:bg2
+exe 'hi ColorColumn  guibg='s:bg2
+exe 'hi LineNr guifg='s:fg2' guibg='s:bg2
+exe 'hi VertSplit guifg='s:fg3' guibg='s:bg3
+exe 'hi MatchParen guifg='s:warning2'  gui=underline'
+exe 'hi StatusLine guifg='s:fg2' guibg='s:bg3' gui=bold'
+exe 'hi Pmenu guifg='s:fg' guibg='s:bg2
+exe 'hi PmenuSel  guibg='s:bg3
+exe 'hi IncSearch guifg='s:bg' guibg='s:keyword
+exe 'hi Search   gui=underline'
+exe 'hi Directory guifg='s:const
+exe 'hi Folded guifg='s:fg4' guibg='s:bg
+exe 'hi WildMenu guifg='s:str' guibg='s:bg
+
+exe 'hi Boolean guifg='s:const
+exe 'hi Character guifg='s:const
+exe 'hi Comment guifg='s:comment
+exe 'hi Conditional guifg='s:keyword
+exe 'hi Constant guifg='s:const
+exe 'hi Todo guibg='s:bg
+exe 'hi Define guifg='s:keyword
+exe 'hi DiffAdd guifg=#fafafa guibg=#123d0f gui=bold'
+exe 'hi DiffDelete guibg='s:bg2
+exe 'hi DiffChange  guibg=#151b3c guifg=#fafafa'
+exe 'hi DiffText guifg=#ffffff guibg=#ff0000 gui=bold'
+exe 'hi ErrorMsg guifg='s:warning' guibg='s:bg2' gui=bold'
+exe 'hi WarningMsg guifg='s:fg' guibg='s:warning2
+exe 'hi Float guifg='s:const
+exe 'hi Function guifg='s:func
+exe 'hi Identifier guifg='s:type'  gui=italic'
+exe 'hi Keyword guifg='s:keyword'  gui=bold'
+exe 'hi Label guifg='s:var
+exe 'hi NonText guifg='s:bg4' guibg='s:bg2
+exe 'hi Number guifg='s:const
+exe 'hi Operator guifg='s:keyword
+exe 'hi PreProc guifg='s:keyword
+exe 'hi Special guifg='s:fg
+exe 'hi SpecialKey guifg='s:fg2' guibg='s:bg2
+exe 'hi Statement guifg='s:keyword
+exe 'hi StorageClass guifg='s:type'  gui=italic'
+exe 'hi String guifg='s:str
+exe 'hi Tag guifg='s:keyword
+exe 'hi Title guifg='s:fg'  gui=bold'
+exe 'hi Todo guifg='s:fg2'  gui=inverse,bold'
+exe 'hi Type guifg='s:type
+exe 'hi Underlined   gui=underline'
+
+" Neovim Terminal Mode
+let g:terminal_color_0 = s:bg
+let g:terminal_color_1 = s:warning
+let g:terminal_color_2 = s:keyword
+let g:terminal_color_3 = s:bg4
+let g:terminal_color_4 = s:func
+let g:terminal_color_5 = s:builtin
+let g:terminal_color_6 = s:fg3
+let g:terminal_color_7 = s:str
+let g:terminal_color_8 = s:bg2
+let g:terminal_color_9 = s:warning2
+let g:terminal_color_10 = s:fg2
+let g:terminal_color_11 = s:var
+let g:terminal_color_12 = s:type
+let g:terminal_color_13 = s:const
+let g:terminal_color_14 = s:fg4
+let g:terminal_color_15 = s:comment
+
+" Ruby Highlighting
+exe 'hi rubyAttribute guifg='s:builtin
+exe 'hi rubyLocalVariableOrMethod guifg='s:var
+exe 'hi rubyGlobalVariable guifg='s:var' gui=italic'
+exe 'hi rubyInstanceVariable guifg='s:var
+exe 'hi rubyKeyword guifg='s:keyword
+exe 'hi rubyKeywordAsMethod guifg='s:keyword' gui=bold'
+exe 'hi rubyClassDeclaration guifg='s:keyword' gui=bold'
+exe 'hi rubyClass guifg='s:keyword' gui=bold'
+exe 'hi rubyNumber guifg='s:const
+
+" Python Highlighting
+exe 'hi pythonBuiltinFunc guifg='s:builtin
+
+" Go Highlighting
+exe 'hi goBuiltins guifg='s:builtin
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_build_constraints      = 1
+let g:go_highlight_chan_whitespace_error  = 1
+let g:go_highlight_extra_types            = 1
+let g:go_highlight_fields                 = 1
+let g:go_highlight_format_strings         = 1
+let g:go_highlight_function_calls         = 1
+let g:go_highlight_function_parameters    = 1
+let g:go_highlight_functions              = 1
+let g:go_highlight_generate_tags          = 1
+let g:go_highlight_operators              = 1
+let g:go_highlight_space_tab_error        = 1
+let g:go_highlight_string_spellcheck      = 1
+let g:go_highlight_types                  = 1
+let g:go_highlight_variable_assignments   = 1
+let g:go_highlight_variable_declarations  = 1
+
+" Javascript Highlighting
+exe 'hi jsBuiltins guifg='s:builtin
+exe 'hi jsFunction guifg='s:keyword' gui=bold'
+exe 'hi jsGlobalObjects guifg='s:type
+exe 'hi jsAssignmentExps guifg='s:var
+
+" Html Highlighting
+exe 'hi htmlLink guifg='s:var' gui=underline'
+exe 'hi htmlStatement guifg='s:keyword
+exe 'hi htmlSpecialTagName guifg='s:keyword
+
+" Markdown Highlighting
+exe 'hi mkdCode guifg='s:builtin
+
+
+
+
+
+[-[-[ polybar ]-]-]
+;===========================================
+;
+;   SpoofBinary's Custom Polybar Config
+;     https://github.com/SpoofBinary
+;   
+;===========================================
+
+[colors]
+background = #1E1E1E
+background-wm = #1E1E1E
+; should be same color as background-wm
+background-alt = #1E1E1E
+foreground = #9954FF
+; alt should be lighter than og
+foreground-alt = #6D3CB7
+primary = #6F10CC
+secondary = #5460ff
+alert = #FF0000
+
+[settings]
+format-foreground = ${colors.primary}
+format-underline = ${colors.foreground}
+format-background = ${colors.background-alt}
+format-padding = 1
+format-overline = 
+format-margin = 0
+format-offset = 
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/ricebar]
+monitor = ${env:MONITOR:eDP-1}
+monitor-fallback = 
+monitor-strict = false
+monitor-exact = true
+;override-redirect = true
+wm-resstack = bspwm
+enable-ipc = true
+fixed-center = false
+bottom = false
+separator = 
+;dim-value = 1.0
+
+width = 100%
+height = 32
+offset-x = 0
+offset-y = 0
+radius = 0.0
+
+;background-0 = ${colors.primary}
+;background-1 = ${colors.secondary}
+;background-2 = ${colors.alert}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #000000
+
+border-size = 4
+; Default Color is transparent = #00000000
+border-color = #00000000
+
+padding = 0
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = SourceCodeProMedium:pixelsize=12;
+font-1 = HackNerdFont:pixelsize=12;
+font-2 = NotoColorEmoji:fontformat=truetype:scale=12:antialias=false;
+font-3 = Weather Icons:size=12;
+font-4 = SourceCodeProMedium:pixelsize=24;
+;dpi-y = 96
+;dpi-x = 96
+
+modules-left = poweroff bspwm xwindow
+;modules-center = 
+modules-right = weather timedate pulseaudio battery network
+
+tray-position = right 
+tray-padding = 1
+tray-background = ${colors.backgorund-alt}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-scale = 1.0
+
+cursor-click = arrow
+cursor-scroll = ew-resize
+
+
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %name%
+label-focused-foreground = ${colors.primary}
+label-focused-background = ${colors.background-wm}
+label-focused-underline = ${colors.foreground}
+label-focused-padding = ${settings.format-padding}
+
+label-occupied = %name%
+label-occupied-foreground = ${colors.primary}
+label-occupied-background = ${colors.background-wm}
+label-occupied-padding = ${settings.format-padding}
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.alert}
+label-urgent-background = ${colors.background-wm}
+label-urgent-padding = ${settings.format-padding}
+
+label-empty =
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-background = ${colors.background-wm}
+label-empty-padding = ${settings.format-padding}
+
+format-underline = 
+format-background = 
+format-padding = 1
+
+label-separator = 
+
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 58
+format = <label>
+format-underline = 
+format-background = ${settings.format-foreground}
+format-foreground = ${settings.format-background}
+format-padding = ${settings.format-padding}
+
+
+
+[module/battery]
+type = custom/script
+exec = ~/scripts/battery.sh
+interval = 10
+tail = true
+
+format-foreground = ${settings.format-foreground}
+format-background = ${settings.format-background}
+format-underline = ${settings.format-underline}
+format-padding = ${settings.format-padding}
+format-prefix = "|  "
+
+
+
+[module/network]
+type = internal/network
+interface = wlan0
+interval = 1
+
+format-connected = <label-connected>
+format-connected-prefix = "|  📶 "
+format-connected-background = ${settings.format-background}
+label-connected = %essid%
+label-connected-foreground = ${settings.format-foreground}
+
+format-disconnected = <label-disconnected>
+format-disconnected-prefix = "|  📶 "
+format-disconnected-background = ${settings.format-background}
+label-disconnected = not connected
+label-disconnected-foreground = ${settings.format-foreground}
+
+format-padding = ${settings.format-padding}
+format-background = ${settings.format-background}
+format-foreground = ${settings.format-foreground}
+format-underline = ${settings.format-underline}
+
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+interval = 1
+
+format-volume =|  <ramp-volume> <label-volume>
+format-muted =|  <label-muted>
+
+label-volume = %percentage%
+label-volume-foreground = ${settings.format-foreground}
+
+label-muted = 🔇 muted
+label-muted-foreground = ${settings.format-foreground}
+
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+format-foreground = ${settings.format-foreground}
+format-background = ${settings.format-background}
+format-underline = ${settings.format-underline}
+format-padding = ${settings.format-padding}
+
+
+
+[module/timedate]
+type = custom/script
+exec = date '+%m|%d|%Y %H:%M'
+interval = 1
+
+format-prefix = "|  ⏳ "
+format-underline = ${settings.format-underline}
+format-foreground = ${settings.format-foreground}
+format-background = ${settings.format-background}
+format-padding = ${settings.format-padding}
+
+
+
+[module/weather]
+type = custom/script
+exec = ~/scripts/weather.sh
+interval = 60
+
+label-font = 4
+format-foreground = ${settings.format-foreground}
+format-background = ${settings.format-background}
+format-underline = ${settings.format-underline}
+format-padding = ${settings.format-padding}
+format-prefix = "|  "
+[launch.sh]
+#!/usr/bin/env bash
+
+# Terminate already running bar instances
+killall -q polybar
+# If all your bars have ipc enabled, you can also use 
+# polybar-msg cmd quit
+
+# Launch bar1 and bar2
+echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
+polybar ricebar 2>&1 | tee -a /tmp/polybar1.log & disown
+#polybar bar2 2>&1 | tee -a /tmp/polybar2.log & disown
+
+echo "Bars launched..."
+
+
+
+
+
+{{{Polybar Scripts}}}
+[battery.sh]
+#!/bin/sh
+
+battery_print() {
+    PATH_AC="/sys/class/power_supply/AC"
+    PATH_BATTERY_0="/sys/class/power_supply/BAT0"
+    PATH_BATTERY_1="/sys/class/power_supply/BAT1"
+
+    ac=0
+    battery_level_0=0
+    battery_level_1=0
+    battery_max_0=0
+    battery_max_1=0
+
+    if [ -f "$PATH_AC/online" ]; then
+        ac=$(cat "$PATH_AC/online")
+    fi
+
+    if [ -f "$PATH_BATTERY_0/energy_now" ]; then
+        battery_level_0=$(cat "$PATH_BATTERY_0/energy_now")
+    fi
+
+    if [ -f "$PATH_BATTERY_0/energy_full" ]; then
+        battery_max_0=$(cat "$PATH_BATTERY_0/energy_full")
+    fi
+
+    if [ -f "$PATH_BATTERY_1/energy_now" ]; then
+        battery_level_1=$(cat "$PATH_BATTERY_1/energy_now")
+    fi
+
+    if [ -f "$PATH_BATTERY_1/energy_full" ]; then
+        battery_max_1=$(cat "$PATH_BATTERY_1/energy_full")
+    fi
+
+    battery_level=$(("$battery_level_0 + $battery_level_1"))
+    battery_max=$(("$battery_max_0 + $battery_max_1"))
+
+    battery_percent=$(("$battery_level * 100"))
+    battery_percent=$(("$battery_percent / $battery_max"))
+
+    if [ "$ac" -eq 1 ]; then
+        icon="🔌"
+
+        if [ "$battery_percent" -gt 97 ]; then
+            echo "$icon"
+        else
+            echo "$icon $battery_percent %"
+        fi
+    else
+        if [ "$battery_percent" -gt 85 ]; then
+            icon="🔋"
+        elif [ "$battery_percent" -gt 60 ]; then
+            icon="🔋"
+        elif [ "$battery_percent" -gt 35 ]; then
+            icon="⚡"
+        elif [ "$battery_percent" -gt 10 ]; then
+            icon="🔌"
+        else
+            icon="🔌"
+        fi
+
+        echo "$icon $battery_percent %"
+    fi
+}
+
+path_pid="/tmp/polybar-battery-combined-udev.pid"
+
+case "$1" in
+    --update)
+        pid=$(cat $path_pid)
+
+        if [ "$pid" != "" ]; then
+            kill -10 "$pid"
+        fi
+        ;;
+    *)
+        echo $$ > $path_pid
+
+        trap exit INT
+        trap "echo" USR1
+
+        while true; do
+            battery_print
+
+            sleep 30 &
+            wait
+        done
+        ;;
+esac
+
+
+[weather.sh]
+#!/bin/sh
+
+get_icon() {
+    case $1 in
+        # Icons for weather-icons
+        01d) icon="";;
+        01n) icon="";;
+        02d) icon="";;
+        02n) icon="";;
+        03*) icon="";;
+        04*) icon="";;
+        09d) icon="";;
+        09n) icon="";;
+        10d) icon="";;
+        10n) icon="";;
+        11d) icon="";;
+        11n) icon="";;
+        13d) icon="";;
+        13n) icon="";;
+        50d) icon="";;
+        50n) icon="";;
+        *) icon="";
+
+        # Icons for Font Awesome 5 Pro
+        #01d) icon="";;
+        #01n) icon="";;
+        #02d) icon="";;
+        #02n) icon="";;
+        #03d) icon="";;
+        #03n) icon="";;
+        #04*) icon="";;
+        #09*) icon="";;
+        #10d) icon="";;
+        #10n) icon="";;
+        #11*) icon="";;
+        #13*) icon="";;
+        #50*) icon="";;
+        #*) icon="";
+    esac
+
+    echo $icon
+}
+
+KEY="INSERT TOKEN"
+CITY="INSERT CITY,COUNTRYCODE"
+UNITS="metric"
+SYMBOL="°"
+
+API="https://api.openweathermap.org/data/2.5"
+
+if [ -n "$CITY" ]; then
+    if [ "$CITY" -eq "$CITY" ] 2>/dev/null; then
+        CITY_PARAM="id=$CITY"
+    else
+        CITY_PARAM="q=$CITY"
+    fi
+
+    weather=$(curl -sf "$API/weather?appid=$KEY&$CITY_PARAM&units=$UNITS")
+else
+    location=$(curl -sf https://location.services.mozilla.com/v1/geolocate?key=geoclue)
+
+    if [ -n "$location" ]; then
+        location_lat="$(echo "$location" | jq '.location.lat')"
+        location_lon="$(echo "$location" | jq '.location.lng')"
+
+        weather=$(curl -sf "$API/weather?appid=$KEY&lat=$location_lat&lon=$location_lon&units=$UNITS")
+    fi
+fi
+
+if [ -n "$weather" ]; then
+    weather_desc=$(echo "$weather" | jq -r ".weather[0].description")
+    weather_temp=$(echo "$weather" | jq ".main.temp" | cut -d "." -f 1)
+    weather_icon=$(echo "$weather" | jq -r ".weather[0].icon")
+
+    echo "$(get_icon "$weather_icon")" "$weather_desc", "$weather_temp$SYMBOL"
+fi
+
+
